@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: #f7f8fa;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #111111;
+  --secondary-foreground: #ffffff;
+  --muted: #eef0f3;
+  --muted-foreground: #596170;
+  --accent: #16a34a;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #d9dee6;
+  --input: #d9dee6;
+  --ring: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.display-type {
+  font-family:
+    Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+}
+
+.produce-shadow {
+  box-shadow: 0 14px 0 var(--primary);
+}
+
+.page-transition {
+  animation: page-enter 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: 50% 0;
+}
+
+.page-transition::before {
+  animation: page-wipe 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  background: var(--primary);
+  content: "";
+  height: 4px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform-origin: 0 50%;
+  z-index: 80;
+}
+
+.animated-heading {
+  text-wrap: balance;
+}
+
+.animated-heading-word {
+  animation: heading-word-enter 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--word-index) * 34ms + 60ms);
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  transform-origin: 0 100%;
+  will-change: transform, opacity;
+}
+
+.section-block {
+  padding: 5rem 1rem;
+}
+
+.container-grid {
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.mono-label {
+  font-family:
+    "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  letter-spacing: 0;
+}
+
+.image-contrast {
+  filter: saturate(0.92) contrast(1.04);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-wipe {
+  0% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes heading-word-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-transition,
+  .page-transition::before,
+  .animated-heading-word {
+    animation: none;
+  }
+
+  .animated-heading-word {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .section-block {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-block {
+    padding-inline: 2rem;
+  }
+}
