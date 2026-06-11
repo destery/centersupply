@@ -6,7 +6,7 @@ export const siteConfig = {
   title: "ООО Центр Снабжения | Оптовая торговля фруктами, овощами и консервацией",
   description:
     "Оптовая торговля свежими фруктами, овощами и консервированной овощной продукцией для торговых компаний, сетей, ресторанов и предприятий общественного питания.",
-  phone: "+7 (903) 942-11-15",
+  phone: "+7 (916) 366-19-53",
   salesEmail: "info@centersupply.ru",
   accountingEmail: "accounting@centersupply.ru",
   address:
