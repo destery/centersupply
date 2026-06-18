@@ -24,9 +24,15 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <Link className="flex items-center gap-3" href="/" aria-label="На главную">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-primary text-sm font-black text-primary-foreground">
-              ЦС
-            </span>
+            <Image
+              alt="Логотип ООО Центр Снабжения"
+              className="h-10 w-auto shrink-0 object-contain"
+              height={1214}
+              priority
+              sizes="72px"
+              src="/company-logo.png"
+              width={2180}
+            />
             <span>
               <span className="block text-base font-semibold leading-none">{siteConfig.name}</span>
               <span className="mono-label text-xs text-muted-foreground">оптовые поставки</span>
