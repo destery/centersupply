@@ -55,7 +55,7 @@ export function createPageMetadata({
   const fullTitle = resolveMetaTitle(title);
 
   return {
-    title,
+    ...(title ? { title } : {}),
     description,
     keywords: [...siteConfig.keywords, ...keywords],
     alternates: {
